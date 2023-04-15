@@ -1,0 +1,19 @@
+steps:
+   # Build the container images
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/learn-gcp-383202/learn/golang', '']
+   # Docker Push
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/learn-gcp-383202/learn/golang']
+   # Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['run',
+         'deploy',
+         'id-learn',
+         '--image',
+         'gcr.io/learn-gcp-383202/learn/golang',
+         '--region',
+         'asia-southeast2']
+images:
+- gcr.io/learn-gcp-383202/learn/golang
+
