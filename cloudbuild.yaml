@@ -1,19 +1,19 @@
 steps:
    # Build the container images
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn', '']
+  args: ['build', '-t', 'asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang:tag', '']
    # Docker Push
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang']
+  args: ['push', 'asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang:tag']
    # Deploy container image to Cloud Run
 - name: 'gcr.io/cloud-builders/docker'
   args: ['run',
          'deploy',
          'id-learn',
          '--image',
-         'asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang',
+         'asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang:tag',
          '--region',
          'asia-southeast2']
 images:
-- asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang
+- asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang:tag
 
