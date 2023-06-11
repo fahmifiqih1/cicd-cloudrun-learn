@@ -15,5 +15,5 @@ steps:
          '--region',
          'asia-southeast2']
 images:
-- gcr.io/learn-gcp-383202/learn/golang
+- asia-southeast2-docker.pkg.dev/learn-gcp-383202/learn/golang
 
